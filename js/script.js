@@ -19,40 +19,68 @@
 // MILESTONE 2:
 // Stampare le stesse informazioni su DOM sottoforma di stringhe
 
+// BONUS 1:
+// Trasformare la stringa foto in una immagine effettiva
+
+// BONUS 2:
+// Organizzare i singoli membri in card/schede. Se non vi sentite particolarmente creativi, potete prendere uno spunto dallo screenshot allegato.
+
 
 // Creo l'array contenente le informazioni dei membri del team
 const teamMembers = [
     {
         name: "Wayne Barnett",
         job: "Founder & CEO",
-        image: "wayne-barnett-founder-ceo.jpg"
+        image: "img/wayne-barnett-founder-ceo.jpg"
     },
     {
         name: "Angela Caroll",
         job: "Chief Editor",
-        image: "angela-caroll-chief-editor.jpg"
+        image: "img/angela-caroll-chief-editor.jpg"
     },
     {
         name: "Walter Gordon",
         job: "Office Manager",
-        image: "walter-gordon-office-manager.jpg"
+        image: "img/walter-gordon-office-manager.jpg"
     },
     {
         name: "Angela Lopez",
         job: "Social Media Manager",
-        image: "angela-lopez-social-media-manager.jpg"
+        image: "img/angela-lopez-social-media-manager.jpg"
     },
     {
         name: "Scott Estrada",
         job: "Developer",
-        image: "scott-estrada-developer.jpg"
+        image: "img/scott-estrada-developer.jpg"
     },
     {
         name: "Barbara Ramos",
         job: "Graphic Designer",
-        image: "barbara-ramos-graphic-designer.jpg"
+        image: "img/barbara-ramos-graphic-designer.jpg"
     },
 ];
 
 // Stampo su console
 console.log(teamMembers);
+
+// Stampo le informazioni su DOM con delle card
+const cardRow = document.querySelector(".row")
+
+let cards = ""
+for (let i = 0; i < teamMembers.length; i++){
+
+    const currentMember = teamMembers[i];
+    cards += `
+    <div class="col-4">
+        <div class="card card${i} mb-5 bg-white">
+            <div class="card-body d-flex flex-column justify-content-center">
+                <img src="${currentMember.image}" alt="">
+                <h5 class="card-title mt-3">${currentMember.name}</h5>
+                <h6 class="card-subtitle">${currentMember.job}</h6>
+            </div>
+        </div>
+    </div>
+    `
+}
+
+cardRow.innerHTML = cards;
