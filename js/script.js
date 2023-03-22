@@ -20,6 +20,7 @@
 // Stampare le stesse informazioni su DOM sottoforma di stringhe
 
 
+// Creo l'array contenente le informazioni dei membri del team
 const teamMembers = [
     {
         name: "Wayne Barnett",
@@ -52,3 +53,6 @@ const teamMembers = [
         image: "barbara-ramos-graphic-designer.jpg"
     },
 ];
+
+// Stampo su console
+console.log(teamMembers);
